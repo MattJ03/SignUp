@@ -23,19 +23,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        username = findViewById(R.id.editTextTextEmailAddress);
-        password = findViewById(R.id.editTextTextPassword);
-        button = findViewById(R.id.submitBtn);
+        usernameInput = findViewById(R.id.editTextTextEmailAddress);
+        passwordInput = findViewById(R.id.editTextTextPassword);
+        buttonSub = findViewById(R.id.submitBtn);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           username = usernameInput.getText().toString().trim();
-            }
-        });
+               String username = usernameInput.getText().toString().trim();
+               String password = passwordInput.getText().toString().trim();
 
-
-
-
+           if(username.isEmpty() || password.isEmpty()) {
+           Toast.makeText(MainActivity.this, "Enter both username and password", Toast.LENGTH_SHORT);
+           } else {
+               Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT);
+           }
+           }
+            });
     }
 }
