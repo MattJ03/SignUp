@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
                String password = passwordInput.getText().toString().trim();
 
            if(username.isEmpty() || password.isEmpty()) {
-           Toast.makeText(MainActivity.this, "Enter both username and password", Toast.LENGTH_SHORT);
+           Toast.makeText(MainActivity.this, "Enter both username and password", Toast.LENGTH_SHORT).show();
            } else {
-               Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT);
+               Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
            }
            }
             });
