@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     EditText usernameInput, passwordInput;
     Button buttonSub;
 
+    int CHANNEL_ID = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.editTextTextEmailAddress);
         passwordInput = findViewById(R.id.editTextTextPassword);
         buttonSub = findViewById(R.id.submitBtn);
+
+        String notifTitle = "Sign Up attempt";
+        String failText = "Login credentials are wrong";
+        String successText = "Login successful";
+
+
 
         buttonSub.setOnClickListener(new View.OnClickListener() {
             @Override
