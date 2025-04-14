@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText usernameInput, passwordInput;
     Button buttonSub;
 
-    int CHANNEL_ID = 1;
+    String CHANNEL_ID = "Sign up ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         String successText = "Login successful";
 
 
-
         buttonSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,8 +43,18 @@ public class MainActivity extends AppCompatActivity {
 
            if(username.isEmpty() || password.isEmpty()) {
            Toast.makeText(MainActivity.this, "Enter both username and password", Toast.LENGTH_SHORT).show();
+           NotificationCompat.Builder builder1 = new NotificationCompat.Builder(MainActivity.this, CHANNEL_ID)
+                   .setSmallIcon(R.id.logo)
+                   .setContentTitle(notifTitle)
+                   .setContentText(failText)
+                   .setPriority(NotificationCompat.PRIORITY_DEFAULT);
            } else {
                Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+               NotificationCompat.Builder builder2 = new NotificationCompat.Builder(MainActivity.this, CHANNEL_ID)
+                       .setSmallIcon(R.id.logo)
+                       .setContentTitle(notifTitle)
+                       .setContentText(successText)
+                       .setPriority(NotificationCompat.PRIORITY_DEFAULT);
            }
            }
 
