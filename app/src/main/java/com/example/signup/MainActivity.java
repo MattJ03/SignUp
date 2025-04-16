@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
      super.onCreate(savedInstanceState);
      setContentView(R.layout.activity_main);
 
+     NotificationHelper.createNotificationChannel(this);
+
     emailAddress = findViewById(R.id.editTextTextEmailAddress);
     password = findViewById(R.id.editTextTextPassword);
     subButton = findViewById(R.id.submitBtn);
@@ -34,8 +36,11 @@ public class MainActivity extends AppCompatActivity {
     subButton.setOnClickListener(view -> {
         if(emailAddress.toString().isEmpty() || password.toString().isEmpty()) {
             Toast.makeText(MainActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+            NotificationHelper.sendNotification(MainActivity.this, CHANNEL_ID, "sign up", "sign up failed");
+
         } else {
             Toast.makeText(MainActivity.this, "Sign up successful", Toast.LENGTH_SHORT).show();
+            NotificationHelper.sendNotification(MainActivity.this, CHANNEL_ID, "Signed up", "Sign up successful");
         }
     });
     }
