@@ -14,7 +14,7 @@ public class NotificationHelper {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = context.getString(R.string.channel_name);
             String description = context.getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            int importance = NotificationManager.IMPORTANCE_HIGH;
 
             NotificationChannel channel = new NotificationChannel("signup_channel", name, importance);
             channel.setDescription(description);
@@ -31,7 +31,7 @@ public class NotificationHelper {
                 .setSmallIcon(R.drawable.hal)
                 .setContentTitle(title)
                 .setContentText(text)
-                .setPriority(NotificationManager.IMPORTANCE_DEFAULT);
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 

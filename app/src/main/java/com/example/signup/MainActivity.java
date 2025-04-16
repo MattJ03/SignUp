@@ -19,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    String CHANNEL_ID = "Signup_channel";
+    String CHANNEL_ID = "signup_channel";
     EditText emailAddress, password;
     Button subButton;
 
@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
     subButton.setOnClickListener(view -> {
         if(emailAddress.toString().isEmpty() || password.toString().isEmpty()) {
-            Toast.makeText(MainActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Testing", Toast.LENGTH_SHORT).show();
             NotificationHelper.sendNotification(MainActivity.this, CHANNEL_ID, "sign up", "sign up failed");
 
         } else {
-            Toast.makeText(MainActivity.this, "Sign up successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Testing again", Toast.LENGTH_SHORT).show();
             NotificationHelper.sendNotification(MainActivity.this, CHANNEL_ID, "Signed up", "Sign up successful");
         }
     });
